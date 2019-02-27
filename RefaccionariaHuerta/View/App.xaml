@@ -12,8 +12,8 @@
             </Style>
 
 
-            <ImageBrush x:Key="Fondo" ImageSource="pack://application:,,,/View;component/Images/fmahle.png"></ImageBrush>
-            <ImageBrush x:Key="FondoInicio" ImageSource="pack://application:,,,/View;component/Images/fondoinicio.png"></ImageBrush>
+            <ImageBrush x:Key="Fondo" ImageSource="pack://application:,,,/View;component/Imagenes/FondoInicio.jpg"></ImageBrush>
+            <ImageBrush x:Key="FondoInicio" ImageSource="pack://application:,,,/View;component/Imagenes/2.png"></ImageBrush>
             <ResourceDictionary.MergedDictionaries>
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />

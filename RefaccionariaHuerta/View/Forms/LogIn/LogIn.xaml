@@ -6,10 +6,12 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:View.Forms.LogIn"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="{StaticResource FondoInicio}"
         BorderBrush="DarkBlue" BorderThickness="2"
         mc:Ignorable="d"
-        Title="LogIn" Height="450" Width="450">
+        Height="450" Width="450">
     <Grid>
         
         <!--Definición de columas y casillas principales-->
@@ -33,14 +35,24 @@
             </Grid.RowDefinitions>
             
             <!--Imágen representativa del usuario-->
-            <Image Grid.Row="0"/>
+            <materialDesign:PackIcon Kind="AccountCircle"  Width="140" Height="140" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
 
             <!--Usuario-->
-            <TextBox Grid.Row="1"/>
+            <TextBox Grid.Row="1" Text="{Binding Descripcion}" materialDesign:HintAssist.Hint="Nombre del Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="49" Width="350" BorderBrush="#89535353" FontSize="18" FontWeight="Bold"/>
+            
             <!--Contraseña-->
-            <TextBox Grid.Row="2"/>
+            <PasswordBox x:Name="txt_pass" Grid.Row="2" materialDesign:HintAssist.Hint="Contraseña"  Height="49"  Width="350" BorderBrush="#899B9999" FontSize="18" FontWeight="Bold">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction
+									Command="{Binding PasswordChanged1}"
+                                     CommandParameter="{Binding ElementName=txt_pass}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </PasswordBox>
+
             <!--Boton para Ingresar-->
-            <Button Grid.Row="3"/>
+            <Button Grid.Row="3" Content="Ingresar" Click="IngresarSistema" Height="31" Width="95"/>
         </Grid>
     </Grid>
 </controls:MetroWindow>
